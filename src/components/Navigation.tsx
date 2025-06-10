@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Brain, MessageCircle, Activity, User, Home } from "lucide-react";
+import { Brain, MessageCircle, Activity, User, Home, BookOpen, Gamepad2, Users, Languages } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
@@ -12,6 +12,9 @@ export const Navigation = ({ activeSection, setActiveSection }: NavigationProps)
     { id: "home", label: "Accueil", icon: Home },
     { id: "chat", label: "Chat IA", icon: MessageCircle },
     { id: "mood", label: "Suivi Humeur", icon: Activity },
+    { id: "diary", label: "Journal", icon: BookOpen },
+    { id: "games", label: "Jeux", icon: Gamepad2 },
+    { id: "communities", label: "Communautés", icon: Users },
     { id: "dashboard", label: "Tableau de Bord", icon: Brain },
   ];
 
@@ -33,7 +36,7 @@ export const Navigation = ({ activeSection, setActiveSection }: NavigationProps)
           </div>
 
           {/* Navigation Items */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
@@ -43,17 +46,28 @@ export const Navigation = ({ activeSection, setActiveSection }: NavigationProps)
                   key={item.id}
                   onClick={() => setActiveSection(item.id)}
                   variant={isActive ? "default" : "ghost"}
-                  className={`flex items-center gap-2 transition-all duration-300 ${
+                  size="sm"
+                  className={`flex items-center gap-1 transition-all duration-300 text-xs ${
                     isActive 
                       ? "bg-gradient-to-r from-blue-600 to-green-600 text-white shadow-lg scale-105" 
                       : "hover:bg-gray-100 hover:scale-105"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{item.label}</span>
+                  <Icon className="w-3 h-3" />
+                  <span className="hidden lg:inline text-xs">{item.label}</span>
                 </Button>
               );
             })}
+            
+            {/* Language Settings */}
+            <Button
+              onClick={() => setActiveSection("settings")}
+              variant="ghost"
+              size="sm"
+              className="ml-2 hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+            >
+              <Languages className="w-4 h-4" />
+            </Button>
           </div>
         </div>
       </div>

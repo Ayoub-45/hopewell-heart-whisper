@@ -1,12 +1,15 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Heart, MessageCircle, Activity, BookOpen, Bell } from "lucide-react";
+import { Brain, Heart, MessageCircle, Activity, BookOpen, Gamepad2, Users } from "lucide-react";
 import { AIChat } from "@/components/AIChat";
 import { MoodTracker } from "@/components/MoodTracker";
 import { Dashboard } from "@/components/Dashboard";
 import { Navigation } from "@/components/Navigation";
+import { Diary } from "@/components/Diary";
+import { Games } from "@/components/Games";
+import { Communities } from "@/components/Communities";
+import { LanguageSettings } from "@/components/LanguageSettings";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -17,6 +20,14 @@ const Index = () => {
         return <AIChat />;
       case "mood":
         return <MoodTracker />;
+      case "diary":
+        return <Diary />;
+      case "games":
+        return <Games />;
+      case "communities":
+        return <Communities />;
+      case "settings":
+        return <LanguageSettings />;
       case "dashboard":
         return <Dashboard />;
       default:
@@ -87,25 +98,49 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* Updated Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
             icon={<Brain className="w-8 h-8 text-blue-600" />}
             title="Conversations Alimentées par l'IA"
             description="Interagissez avec notre IA empathique qui comprend vos émotions et fournit un soutien personnalisé adapté à vos besoins."
             delay="delay-300"
+            onClick={() => setActiveSection("chat")}
           />
           <FeatureCard
             icon={<Activity className="w-8 h-8 text-green-600" />}
             title="Suivi de l'Humeur"
             description="Surveillez vos schémas émotionnels avec un suivi intelligent qui aide à identifier les déclencheurs et les progrès au fil du temps."
             delay="delay-500"
+            onClick={() => setActiveSection("mood")}
           />
           <FeatureCard
             icon={<BookOpen className="w-8 h-8 text-purple-600" />}
-            title="Réflexions Guidées"
-            description="Accédez à des invites structurées et des exercices conçus pour favoriser la découverte de soi et la croissance émotionnelle."
+            title="Journal Personnel"
+            description="Tenez un journal de vos pensées et émotions pour favoriser la découverte de soi et la croissance émotionnelle."
             delay="delay-700"
+            onClick={() => setActiveSection("diary")}
+          />
+          <FeatureCard
+            icon={<Gamepad2 className="w-8 h-8 text-orange-600" />}
+            title="Jeux Thérapeutiques"
+            description="Découvrez des activités ludiques conçues pour améliorer votre bien-être mental et réduire le stress."
+            delay="delay-900"
+            onClick={() => setActiveSection("games")}
+          />
+          <FeatureCard
+            icon={<Users className="w-8 h-8 text-pink-600" />}
+            title="Communautés Mondiales"
+            description="Rejoignez des communautés de soutien du monde entier et connectez-vous avec des personnes qui partagent vos expériences."
+            delay="delay-1100"
+            onClick={() => setActiveSection("communities")}
+          />
+          <FeatureCard
+            icon={<MessageCircle className="w-8 h-8 text-indigo-600" />}
+            title="Support Multilingue"
+            description="Utilisez HopeWell en français, arabe ou anglais avec un support IA complet dans chaque langue."
+            delay="delay-1300"
+            onClick={() => setActiveSection("settings")}
           />
         </div>
 
@@ -135,14 +170,18 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
   );
 };
 
-const FeatureCard = ({ icon, title, description, delay }: {
+const FeatureCard = ({ icon, title, description, delay, onClick }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   delay: string;
+  onClick?: () => void;
 }) => {
   return (
-    <Card className={`bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 animate-fade-in ${delay} group`}>
+    <Card 
+      className={`bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 animate-fade-in ${delay} group cursor-pointer`}
+      onClick={onClick}
+    >
       <CardHeader className="text-center pb-4">
         <div className="mx-auto mb-4 p-3 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
           {icon}
