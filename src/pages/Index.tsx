@@ -10,6 +10,7 @@ import { Diary } from "@/components/Diary";
 import { Games } from "@/components/Games";
 import { Communities } from "@/components/Communities";
 import { LanguageSettings } from "@/components/LanguageSettings";
+import { Pricing } from "@/components/Pricing";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
@@ -27,6 +28,8 @@ const Index = () => {
         return <Games />;
       case "communities":
         return <Communities />;
+      case "pricing":
+        return <Pricing />;
       case "settings":
         return <LanguageSettings />;
       case "dashboard":

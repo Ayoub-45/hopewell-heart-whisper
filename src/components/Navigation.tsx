@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Brain, MessageCircle, Activity, User, Home, BookOpen, Gamepad2, Users, Languages } from "lucide-react";
+import { Brain, MessageCircle, Activity, User, Home, BookOpen, Gamepad2, Users, Languages, DollarSign } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NavigationProps {
@@ -18,6 +18,7 @@ export const Navigation = ({ activeSection, setActiveSection }: NavigationProps)
     { id: "diary", label: t('nav.diary'), icon: BookOpen },
     { id: "games", label: t('nav.games'), icon: Gamepad2 },
     { id: "communities", label: t('nav.communities'), icon: Users },
+    { id: "pricing", label: t('nav.pricing'), icon: DollarSign },
     { id: "dashboard", label: t('nav.dashboard'), icon: Brain },
   ];
 
