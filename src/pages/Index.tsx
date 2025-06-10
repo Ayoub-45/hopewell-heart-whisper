@@ -10,6 +10,7 @@ import { Diary } from "@/components/Diary";
 import { Games } from "@/components/Games";
 import { Communities } from "@/components/Communities";
 import { LanguageSettings } from "@/components/LanguageSettings";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -46,8 +47,10 @@ const Index = () => {
 };
 
 const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string) => void }) => {
+  const { t, language } = useLanguage();
+  
   return (
-    <div className="relative overflow-hidden">
+    <div className={`relative overflow-hidden ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
@@ -60,21 +63,19 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
         <div className="text-center mb-16 animate-scale-in">
           <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in delay-200">
             <Heart className="w-4 h-4" />
-            Bien-être Mental Alimenté par l'IA
+            {t('home.hero.badge')}
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              HopeWell
+              {t('home.hero.title')}
             </span>
             <br />
-            <span className="text-4xl md:text-5xl text-gray-700">Votre Compagnon IA</span>
+            <span className="text-4xl md:text-5xl text-gray-700">{t('home.hero.subtitle')}</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Un espace sûr et empathique pour la réflexion émotionnelle et le soutien. Disponible 24h/24 et 7j/7 
-            avec des conversations intelligentes, un suivi de l'humeur et des invites guidées pour vous aider à 
-            construire un chemin vers la clarté intérieure et le bien-être.
+            {t('home.hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -84,7 +85,7 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
-              Commencer une Conversation
+              {t('home.cta.chat')}
             </Button>
             <Button 
               onClick={() => setActiveSection("mood")}
@@ -93,7 +94,7 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
               className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-4 text-lg rounded-full transform transition-all duration-300 hover:scale-105"
             >
               <Activity className="w-5 h-5 mr-2" />
-              Suivre Votre Humeur
+              {t('home.cta.mood')}
             </Button>
           </div>
         </div>
@@ -102,43 +103,43 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
             icon={<Brain className="w-8 h-8 text-blue-600" />}
-            title="Conversations Alimentées par l'IA"
-            description="Interagissez avec notre IA empathique qui comprend vos émotions et fournit un soutien personnalisé adapté à vos besoins."
+            title={t('feature.ai.title')}
+            description={t('feature.ai.description')}
             delay="delay-300"
             onClick={() => setActiveSection("chat")}
           />
           <FeatureCard
             icon={<Activity className="w-8 h-8 text-green-600" />}
-            title="Suivi de l'Humeur"
-            description="Surveillez vos schémas émotionnels avec un suivi intelligent qui aide à identifier les déclencheurs et les progrès au fil du temps."
+            title={t('feature.mood.title')}
+            description={t('feature.mood.description')}
             delay="delay-500"
             onClick={() => setActiveSection("mood")}
           />
           <FeatureCard
             icon={<BookOpen className="w-8 h-8 text-purple-600" />}
-            title="Journal Personnel"
-            description="Tenez un journal de vos pensées et émotions pour favoriser la découverte de soi et la croissance émotionnelle."
+            title={t('feature.diary.title')}
+            description={t('feature.diary.description')}
             delay="delay-700"
             onClick={() => setActiveSection("diary")}
           />
           <FeatureCard
             icon={<Gamepad2 className="w-8 h-8 text-orange-600" />}
-            title="Jeux Thérapeutiques"
-            description="Découvrez des activités ludiques conçues pour améliorer votre bien-être mental et réduire le stress."
+            title={t('feature.games.title')}
+            description={t('feature.games.description')}
             delay="delay-900"
             onClick={() => setActiveSection("games")}
           />
           <FeatureCard
             icon={<Users className="w-8 h-8 text-pink-600" />}
-            title="Communautés Mondiales"
-            description="Rejoignez des communautés de soutien du monde entier et connectez-vous avec des personnes qui partagent vos expériences."
+            title={t('feature.communities.title')}
+            description={t('feature.communities.description')}
             delay="delay-1100"
             onClick={() => setActiveSection("communities")}
           />
           <FeatureCard
             icon={<MessageCircle className="w-8 h-8 text-indigo-600" />}
-            title="Support Multilingue"
-            description="Utilisez HopeWell en français, arabe ou anglais avec un support IA complet dans chaque langue."
+            title={t('feature.language.title')}
+            description={t('feature.language.description')}
             delay="delay-1300"
             onClick={() => setActiveSection("settings")}
           />
@@ -149,19 +150,19 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">24h/24</div>
-              <div className="text-gray-600">Soutien Disponible</div>
+              <div className="text-gray-600">{t('stats.support')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-              <div className="text-gray-600">Privé et Sécurisé</div>
+              <div className="text-gray-600">{t('stats.private')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">IA</div>
-              <div className="text-gray-600">Insights Alimentés</div>
+              <div className="text-gray-600">{t('stats.ai')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">∞</div>
-              <div className="text-gray-600">Soins Personnalisés</div>
+              <div className="text-gray-600">{t('stats.care')}</div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Brain, MessageCircle, Activity, User, Home, BookOpen, Gamepad2, Users, Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NavigationProps {
   activeSection: string;
@@ -8,18 +9,20 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
+  const { t, language } = useLanguage();
+  
   const navItems = [
-    { id: "home", label: "Accueil", icon: Home },
-    { id: "chat", label: "Chat IA", icon: MessageCircle },
-    { id: "mood", label: "Suivi Humeur", icon: Activity },
-    { id: "diary", label: "Journal", icon: BookOpen },
-    { id: "games", label: "Jeux", icon: Gamepad2 },
-    { id: "communities", label: "Communautés", icon: Users },
-    { id: "dashboard", label: "Tableau de Bord", icon: Brain },
+    { id: "home", label: t('nav.home'), icon: Home },
+    { id: "chat", label: t('nav.chat'), icon: MessageCircle },
+    { id: "mood", label: t('nav.mood'), icon: Activity },
+    { id: "diary", label: t('nav.diary'), icon: BookOpen },
+    { id: "games", label: t('nav.games'), icon: Gamepad2 },
+    { id: "communities", label: t('nav.communities'), icon: Users },
+    { id: "dashboard", label: t('nav.dashboard'), icon: Brain },
   ];
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
+    <nav className={`bg-white/90 backdrop-blur-md border-b border-white/20 sticky top-0 z-50 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
