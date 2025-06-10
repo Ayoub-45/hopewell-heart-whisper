@@ -83,10 +83,10 @@ export const MoodTracker = () => {
       <div className="mb-8 text-center animate-fade-in">
         <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
           <Activity className="w-4 h-4" />
-          Daily Check-in
+          Check-in Quotidien
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">How are you feeling today?</h1>
-        <p className="text-gray-600">Track your emotions to understand patterns and progress</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Comment vous sentez-vous aujourd'hui ?</h1>
+        <p className="text-gray-600">Suivez vos émotions pour comprendre les schémas et les progrès</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
@@ -95,46 +95,46 @@ export const MoodTracker = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-gray-800">
               <Heart className="w-6 h-6 text-red-500" />
-              Record Your Mood
+              Enregistrer Votre Humeur
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <MoodSlider
-              label="Overall Mood"
+              label="Humeur Générale"
               value={mood}
               onChange={setMood}
               icon={Smile}
               color="text-blue-600"
-              lowLabel="Very Low"
-              highLabel="Very High"
+              lowLabel="Très Bas"
+              highLabel="Très Élevé"
             />
 
             <MoodSlider
-              label="Energy Level"
+              label="Niveau d'Énergie"
               value={energy}
               onChange={setEnergy}
               icon={Sun}
               color="text-yellow-600"
-              lowLabel="Exhausted"
-              highLabel="Energetic"
+              lowLabel="Épuisé"
+              highLabel="Énergique"
             />
 
             <MoodSlider
-              label="Anxiety Level"
+              label="Niveau d'Anxiété"
               value={anxiety}
               onChange={setAnxiety}
               icon={Moon}
               color="text-purple-600"
-              lowLabel="Very Calm"
-              highLabel="Very Anxious"
+              lowLabel="Très Calme"
+              highLabel="Très Anxieux"
             />
 
             <div className="space-y-2">
-              <label className="font-medium text-gray-700">Additional Notes</label>
+              <label className="font-medium text-gray-700">Notes Supplémentaires</label>
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
-                placeholder="What's been on your mind? Any specific thoughts or experiences today?"
+                placeholder="Qu'est-ce qui vous préoccupe ? Des pensées ou expériences spécifiques aujourd'hui ?"
                 className="w-full p-3 border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 resize-none"
                 rows={4}
               />
@@ -145,14 +145,14 @@ export const MoodTracker = () => {
               className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 text-lg rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <Activity className="w-5 h-5 mr-2" />
-              Save Mood Entry
+              Sauvegarder l'Entrée d'Humeur
             </Button>
 
             {showSuccess && (
               <div className="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-lg animate-fade-in">
                 <div className="flex items-center gap-2">
                   <Heart className="w-5 h-5" />
-                  <span>Mood entry saved successfully! Keep track of your progress.</span>
+                  <span>Entrée d'humeur sauvegardée avec succès ! Continuez à suivre vos progrès.</span>
                 </div>
               </div>
             )}
@@ -164,14 +164,14 @@ export const MoodTracker = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-gray-800">
               <Activity className="w-6 h-6 text-green-600" />
-              Recent Entries
+              Entrées Récentes
             </CardTitle>
           </CardHeader>
           <CardContent>
             {entries.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
                 <Activity className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p>No mood entries yet. Start tracking your emotions above!</p>
+                <p>Aucune entrée d'humeur pour le moment. Commencez à suivre vos émotions ci-dessus !</p>
               </div>
             ) : (
               <div className="space-y-4 max-h-96 overflow-y-auto">
@@ -182,22 +182,22 @@ export const MoodTracker = () => {
                   >
                     <div className="flex justify-between items-start mb-3">
                       <div className="text-sm text-gray-500">
-                        {entry.timestamp.toLocaleDateString()} at {entry.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        {entry.timestamp.toLocaleDateString('fr-FR')} à {entry.timestamp.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
                       </div>
                     </div>
                     
                     <div className="grid grid-cols-3 gap-4 mb-3">
                       <div className="text-center">
                         <div className="text-lg font-semibold text-blue-600">{entry.mood}/10</div>
-                        <div className="text-xs text-gray-500">Mood</div>
+                        <div className="text-xs text-gray-500">Humeur</div>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-semibold text-yellow-600">{entry.energy}/10</div>
-                        <div className="text-xs text-gray-500">Energy</div>
+                        <div className="text-xs text-gray-500">Énergie</div>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-semibold text-purple-600">{entry.anxiety}/10</div>
-                        <div className="text-xs text-gray-500">Anxiety</div>
+                        <div className="text-xs text-gray-500">Anxiété</div>
                       </div>
                     </div>
                     

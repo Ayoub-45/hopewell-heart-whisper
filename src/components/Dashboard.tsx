@@ -5,8 +5,8 @@ import { Brain, Activity, MessageCircle, Heart, BookOpen, Bell } from "lucide-re
 export const Dashboard = () => {
   const insights = [
     {
-      title: "Weekly Mood Trend",
-      value: "Improving",
+      title: "Tendance Humeur Hebdomadaire",
+      value: "En Amélioration",
       change: "+12%",
       icon: Activity,
       color: "text-green-600",
@@ -15,23 +15,23 @@ export const Dashboard = () => {
     {
       title: "Conversations",
       value: "8",
-      change: "This week",
+      change: "Cette semaine",
       icon: MessageCircle,
       color: "text-blue-600",
       bgColor: "bg-blue-100",
     },
     {
-      title: "Mindful Days",
+      title: "Jours Mindful",
       value: "5/7",
-      change: "This week",
+      change: "Cette semaine",
       icon: Heart,
       color: "text-red-600",
       bgColor: "bg-red-100",
     },
     {
-      title: "Progress Score",
+      title: "Score de Progrès",
       value: "78%",
-      change: "+8% from last week",
+      change: "+8% par rapport à la semaine dernière",
       icon: Brain,
       color: "text-purple-600",
       bgColor: "bg-purple-100",
@@ -39,10 +39,10 @@ export const Dashboard = () => {
   ];
 
   const recentActivities = [
-    { type: "mood", description: "Recorded daily mood check-in", time: "2 hours ago" },
-    { type: "chat", description: "Had conversation about anxiety management", time: "1 day ago" },
-    { type: "reflection", description: "Completed guided reflection exercise", time: "2 days ago" },
-    { type: "mood", description: "Mood tracking streak: 7 days", time: "3 days ago" },
+    { type: "mood", description: "Check-in quotidien d'humeur enregistré", time: "Il y a 2 heures" },
+    { type: "chat", description: "Conversation sur la gestion de l'anxiété", time: "Il y a 1 jour" },
+    { type: "reflection", description: "Exercice de réflexion guidée terminé", time: "Il y a 2 jours" },
+    { type: "mood", description: "Série de suivi d'humeur : 7 jours", time: "Il y a 3 jours" },
   ];
 
   const getActivityIcon = (type: string) => {
@@ -63,10 +63,10 @@ export const Dashboard = () => {
       <div className="mb-8 text-center animate-fade-in">
         <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
           <Brain className="w-4 h-4" />
-          Personal Insights
+          Insights Personnels
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Your Wellness Dashboard</h1>
-        <p className="text-gray-600">Track your progress and celebrate your mental health journey</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Votre Tableau de Bord Bien-être</h1>
+        <p className="text-gray-600">Suivez vos progrès et célébrez votre parcours de santé mentale</p>
       </div>
 
       {/* Stats Grid */}
@@ -102,14 +102,14 @@ export const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-gray-800">
               <Heart className="w-6 h-6 text-red-500" />
-              Wellness Journey
+              Parcours Bien-être
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-700">Overall Progress</span>
+                  <span className="text-sm font-medium text-gray-700">Progrès Global</span>
                   <span className="text-sm text-gray-500">78%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
@@ -119,7 +119,7 @@ export const Dashboard = () => {
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-700">Mood Consistency</span>
+                  <span className="text-sm font-medium text-gray-700">Consistance de l'Humeur</span>
                   <span className="text-sm text-gray-500">85%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
@@ -141,11 +141,11 @@ export const Dashboard = () => {
             <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200">
               <div className="flex items-center gap-2 mb-2">
                 <Heart className="w-5 h-5 text-green-600" />
-                <span className="font-medium text-green-800">Keep up the great work!</span>
+                <span className="font-medium text-green-800">Continuez ce excellent travail !</span>
               </div>
               <p className="text-sm text-green-700">
-                You've been consistently tracking your mood and engaging with wellness activities. 
-                Your progress shows positive trends in emotional awareness.
+                Vous avez constamment suivi votre humeur et participé aux activités de bien-être. 
+                Vos progrès montrent des tendances positives dans la conscience émotionnelle.
               </p>
             </div>
           </CardContent>
@@ -156,7 +156,7 @@ export const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-gray-800">
               <Bell className="w-6 h-6 text-orange-500" />
-              Recent Activity
+              Activité Récente
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -181,11 +181,11 @@ export const Dashboard = () => {
             <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <div className="flex items-center gap-2 mb-2">
                 <Brain className="w-5 h-5 text-blue-600" />
-                <span className="font-medium text-blue-800">Daily Tip</span>
+                <span className="font-medium text-blue-800">Conseil Quotidien</span>
               </div>
               <p className="text-sm text-blue-700">
-                Remember to practice mindfulness for just 5 minutes today. Small consistent actions 
-                create lasting positive changes in your mental wellbeing.
+                N'oubliez pas de pratiquer la pleine conscience pendant seulement 5 minutes aujourd'hui. 
+                De petites actions cohérentes créent des changements positifs durables dans votre bien-être mental.
               </p>
             </div>
           </CardContent>

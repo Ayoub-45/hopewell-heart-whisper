@@ -16,7 +16,7 @@ export const AIChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! I'm here to support you on your mental wellness journey. How are you feeling today?",
+      text: "Bonjour ! Je suis là pour vous accompagner dans votre parcours de bien-être mental. Comment vous sentez-vous aujourd'hui ?",
       sender: "ai",
       timestamp: new Date(),
     },
@@ -50,11 +50,11 @@ export const AIChat = () => {
     // Simulate AI response
     setTimeout(() => {
       const aiResponses = [
-        "I hear you, and I want you to know that your feelings are valid. Can you tell me more about what's been on your mind?",
-        "Thank you for sharing that with me. It takes courage to open up. What would help you feel more supported right now?",
-        "I'm here to listen without judgment. Sometimes talking through our thoughts can help us see things from a new perspective.",
-        "Your mental health journey is unique to you. What self-care practices have you found helpful in the past?",
-        "It's okay to have difficult days. They don't define you. What's one small thing that might bring you comfort today?",
+        "Je vous entends, et je veux que vous sachiez que vos sentiments sont valides. Pouvez-vous me parler davantage de ce qui vous préoccupe ?",
+        "Merci de partager cela avec moi. Il faut du courage pour s'ouvrir. Qu'est-ce qui vous aiderait à vous sentir plus soutenu en ce moment ?",
+        "Je suis là pour vous écouter sans jugement. Parfois, parler de nos pensées peut nous aider à voir les choses sous un nouvel angle.",
+        "Votre parcours de santé mentale vous est propre. Quelles pratiques d'auto-soins avez-vous trouvées utiles dans le passé ?",
+        "Il est normal d'avoir des journées difficiles. Elles ne vous définissent pas. Quelle petite chose pourrait vous apporter du réconfort aujourd'hui ?",
       ];
 
       const aiMessage: Message = {
@@ -81,17 +81,17 @@ export const AIChat = () => {
       <div className="mb-8 text-center animate-fade-in">
         <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
           <MessageCircle className="w-4 h-4" />
-          AI Therapy Session
+          Session de Thérapie IA
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Safe Space Conversation</h1>
-        <p className="text-gray-600">Your AI companion is here to listen and support you</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Conversation en Espace Sécurisé</h1>
+        <p className="text-gray-600">Votre compagnon IA est là pour vous écouter et vous soutenir</p>
       </div>
 
       <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0 animate-scale-in">
         <CardHeader className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-2">
             <Brain className="w-6 h-6" />
-            HopeWell AI Assistant
+            Assistant IA HopeWell
           </CardTitle>
         </CardHeader>
         
@@ -113,7 +113,7 @@ export const AIChat = () => {
                   {message.sender === "ai" && (
                     <div className="flex items-center gap-2 mb-2">
                       <Heart className="w-4 h-4 text-green-600" />
-                      <span className="text-xs font-medium text-green-600">AI Companion</span>
+                      <span className="text-xs font-medium text-green-600">Compagnon IA</span>
                     </div>
                   )}
                   <p className="text-sm leading-relaxed">{message.text}</p>
@@ -148,7 +148,7 @@ export const AIChat = () => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Share what's on your mind..."
+                placeholder="Partagez ce qui vous préoccupe..."
                 className="flex-1 border-gray-200 focus:border-blue-500 transition-colors duration-300"
                 disabled={isTyping}
               />
@@ -161,7 +161,7 @@ export const AIChat = () => {
               </Button>
             </div>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              This conversation is private and secure. Your wellbeing is our priority.
+              Cette conversation est privée et sécurisée. Votre bien-être est notre priorité.
             </p>
           </div>
         </CardContent>

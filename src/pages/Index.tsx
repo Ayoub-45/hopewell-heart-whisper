@@ -49,7 +49,7 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
         <div className="text-center mb-16 animate-scale-in">
           <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in delay-200">
             <Heart className="w-4 h-4" />
-            AI-Powered Mental Wellness
+            Bien-être Mental Alimenté par l'IA
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
@@ -57,12 +57,13 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
               HopeWell
             </span>
             <br />
-            <span className="text-4xl md:text-5xl text-gray-700">Your AI Companion</span>
+            <span className="text-4xl md:text-5xl text-gray-700">Votre Compagnon IA</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A safe, empathetic space for emotional reflection and support. Available 24/7 with intelligent conversations, 
-            mood tracking, and guided prompts to help you build a path toward inner clarity and well-being.
+            Un espace sûr et empathique pour la réflexion émotionnelle et le soutien. Disponible 24h/24 et 7j/7 
+            avec des conversations intelligentes, un suivi de l'humeur et des invites guidées pour vous aider à 
+            construire un chemin vers la clarté intérieure et le bien-être.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -72,7 +73,7 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
-              Start Conversation
+              Commencer une Conversation
             </Button>
             <Button 
               onClick={() => setActiveSection("mood")}
@@ -81,7 +82,7 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
               className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-4 text-lg rounded-full transform transition-all duration-300 hover:scale-105"
             >
               <Activity className="w-5 h-5 mr-2" />
-              Track Your Mood
+              Suivre Votre Humeur
             </Button>
           </div>
         </div>
@@ -90,20 +91,20 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
             icon={<Brain className="w-8 h-8 text-blue-600" />}
-            title="AI-Powered Conversations"
-            description="Engage with our empathetic AI that understands your emotions and provides personalized support tailored to your needs."
+            title="Conversations Alimentées par l'IA"
+            description="Interagissez avec notre IA empathique qui comprend vos émotions et fournit un soutien personnalisé adapté à vos besoins."
             delay="delay-300"
           />
           <FeatureCard
             icon={<Activity className="w-8 h-8 text-green-600" />}
-            title="Mood Tracking"
-            description="Monitor your emotional patterns with intelligent tracking that helps identify triggers and progress over time."
+            title="Suivi de l'Humeur"
+            description="Surveillez vos schémas émotionnels avec un suivi intelligent qui aide à identifier les déclencheurs et les progrès au fil du temps."
             delay="delay-500"
           />
           <FeatureCard
             icon={<BookOpen className="w-8 h-8 text-purple-600" />}
-            title="Guided Reflections"
-            description="Access structured prompts and exercises designed to promote self-discovery and emotional growth."
+            title="Réflexions Guidées"
+            description="Accédez à des invites structurées et des exercices conçus pour favoriser la découverte de soi et la croissance émotionnelle."
             delay="delay-700"
           />
         </div>
@@ -112,20 +113,20 @@ const HeroSection = ({ setActiveSection }: { setActiveSection: (section: string)
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 animate-fade-in delay-1000">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">Available Support</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">24h/24</div>
+              <div className="text-gray-600">Soutien Disponible</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-              <div className="text-gray-600">Private & Secure</div>
+              <div className="text-gray-600">Privé et Sécurisé</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">AI</div>
-              <div className="text-gray-600">Powered Insights</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">IA</div>
+              <div className="text-gray-600">Insights Alimentés</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">∞</div>
-              <div className="text-gray-600">Personalized Care</div>
+              <div className="text-gray-600">Soins Personnalisés</div>
             </div>
           </div>
         </div>

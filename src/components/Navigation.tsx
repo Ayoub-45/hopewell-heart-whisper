@@ -9,10 +9,10 @@ interface NavigationProps {
 
 export const Navigation = ({ activeSection, setActiveSection }: NavigationProps) => {
   const navItems = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "chat", label: "AI Chat", icon: MessageCircle },
-    { id: "mood", label: "Mood Tracker", icon: Activity },
-    { id: "dashboard", label: "Dashboard", icon: Brain },
+    { id: "home", label: "Accueil", icon: Home },
+    { id: "chat", label: "Chat IA", icon: MessageCircle },
+    { id: "mood", label: "Suivi Humeur", icon: Activity },
+    { id: "dashboard", label: "Tableau de Bord", icon: Brain },
   ];
 
   return (
